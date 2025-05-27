@@ -3,14 +3,21 @@
   <component name="CsvFileAttributes">
     <option name="attributeMap">
       <map>
-        <entry key="/data/gdp_per_capita.csv">
+        <entry key="/data/gdp_dashboard_ready_data.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
             </Attribute>
           </value>
         </entry>
-        <entry key="/data/gdp_per_capita_clean.csv">
+        <entry key="/data/gdp_forecast_to_2030.csv">
+          <value>
+            <Attribute>
+              <option name="separator" value="," />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="/data/gdp_per_capita.csv">
           <value>
             <Attribute>
               <option name="separator" value="," />
