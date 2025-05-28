@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard PIB per Capita - Flask</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom_styles.css') }}">
+    <script src="https://cdn.plot.ly/plotly-2.24.1.min.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="main-container">
+        <h1 id="main-title">Dashboard de Análise do PIB per Capita</h1>
+        <p id="sub-title">Uma ferramenta interativa para visualizar e analisar o Produto Interno Bruto per capita.</p>
+
+        <div class="filter-section row">
+            <div class="filter-card">
+                <label for="dropdown-paises" class="filter-label">Selecione os Países (afeta gráficos de linha/comparação):</label>
+                <select id="dropdown-paises" multiple aria-label="Seleção de Países"></select>
+            </div>
+            <div class="filter-card">
+                <label class="filter-label" id="label-intervalo-anos">Intervalo de Anos (afeta todos os gráficos/tabelas): <span id="slider-anos-valor"></span></label>
+                <div id="range-slider-placeholder" style="padding: 10px 0; display: flex; align-items: center; justify-content: center; flex-wrap: wrap;" role="group" aria-labelledby="label-intervalo-anos">
+                    <label for="min-ano-input" class="filter-label-inline">Min Ano:</label>
+                    <input type="number" id="min-ano-input" class="year-input" aria-label="Ano mínimo para o intervalo">
+                    <span style="margin: 0 5px;">-</span>
+                    <label for="max-ano-input" class="filter-label-inline" style="margin-left: 10px;">Max Ano:</label>
+                    <input type="number" id="max-ano-input" class="year-input" aria-label="Ano máximo para o intervalo">
+                    <button id="btn-aplicar-filtros" class="apply-button">Aplicar Filtros</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="graph-section row">
+            <div class="graph-card main-graph-card">
+                <div id="grafico-pib-per-capita-tempo" class="main-graph plotly-graph-container" aria-label="Gráfico de evolução do PIB per capita"></div>
+            </div>
+            <div class="secondary-graphs-column">
+                 <div class="graph-card small-graph-card">
+                    <div id="grafico-comparacao-pib-histograma" class="small-graph plotly-graph-container" aria-label="Gráfico de barras comparativo do PIB per capita"></div>
+                </div>
+                <div class="graph-card small-graph-card">
+                    <div id="grafico-comparacao-pib-rosca" class="small-graph plotly-graph-container" aria-label="Gráfico de rosca para comparação do PIB per capita"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="map-section row">
+            <div class="graph-card full-width-card"> <h3 class="card-title" id="titulo-mapa">PIB per Capita Global (Ano Referência: <span id="mapa-ano-referencia"></span>)</h3>
+                <div id="mapa-coropletico-pib" class="world-map-graph plotly-graph-container" aria-label="Mapa coroplético do PIB per capita global"></div>
+            </div>
+        </div>
+
+        <div class="table-section row">
+             <div class="table-card">
+                <h3 class="card-title" id="titulo-estatisticas">Estatísticas Descritivas</h3>
+                <div id="tabela-estatisticas-placeholder" class="placeholder-text"></div>
+            </div>
+            <div class="table-card">
+                <h3 class="card-title" id="titulo-dados-detalhados">Dados Detalhados</h3>
+                <div id="tabela-dados-detalhados-placeholder" class="placeholder-text table-wrapper"></div> </div>
+        </div>
+
+        <div class="indicator-section graph-card">
+            <h3 class="card-title">Análise de Indicadores Adicionais</h3>
+            <div class="indicator-dropdown-container">
+                <label for="dropdown-indicador-adicional" class="filter-label">Selecione o Indicador:</label>
+                <select id="dropdown-indicador-adicional" aria-label="Seleção de Indicador Adicional"></select>
+            </div>
+            <div id="grafico-indicador-adicional" class="main-graph plotly-graph-container" aria-label="Gráfico de indicador adicional"></div>
+        </div>
+
+        <footer id="footer">
+            Dashboard desenvolvido com Flask e Plotly.js. Projeto de Finanças - PIB per Capita.
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
