@@ -1,0 +1,100 @@
+/* Definindo a paleta de cores */
+:root {
+  --app-bg: #1a2430;
+  --card-bg: #2a3747;
+  --text-primary: #ffffff;
+  --text-secondary: #c7d5e0;
+  --highlight-cyan: #00BCD4;
+  --highlight-green: #4CAF50;
+  --highlight-pink: #E91E63;
+}
+
+/* Animação de Fade-in para o corpo da página */
+body {
+    animation: fadeIn 1s ease-out;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Cards de KPI com animação suave */
+.card {
+    background-color: var(--card-bg) !important;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Suavizar a transição dos gráficos do Plotly */
+.plotly-graph-div {
+    animation: fadeInGraph 1s ease-out;
+}
+
+@keyframes fadeInGraph {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Transição suave para a Sidebar */
+.sidebar .sidebar-content {
+    animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* Suavizar a animação nas abas */
+.stTabs > div {
+    animation: fadeInTabs 0.5s ease-in-out;
+}
+
+@keyframes fadeInTabs {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animações de transição na sidebar */
+button {
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    background-color: var(--highlight-cyan);
+}
+
+/* Animação suave para transições de contêineres */
+.stMultiSelect, .stSelectbox {
+    transition: opacity 0.5s ease-in-out;
+}
+
+.stMultiSelect:hover, .stSelectbox:hover {
+    opacity: 0.85;
+}
