@@ -1,0 +1,13 @@
+[theme]
+base="dark"
+primaryColor="#00BCD4"
+backgroundColor="#1a2430"
+secondaryBackgroundColor="#2a3747"
+textColor="#ffffff"
+font="Inter"
+
+[server]
+headless = true
+enableCORS = false
+port = 8501
+maxMessageSize = 100000000  # Aumenta o limite de mensagem para evitar fechamentos inesperados
